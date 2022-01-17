@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.SecondViewFragment">
+
+    <data>
+        <variable
+            name="secondViewFragment"
+            type="com.gulsah.nuevocase.view.SecondViewFragment" />
+
+        <variable
+            name="commentsAdapter"
+            type="com.gulsah.nuevocase.adapter.CommentsAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f9f9f9">
+
+        <FrameLayout
+            android:id="@+id/lyImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/ivAlbumPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius_bottom_left="25dp"
+                app:riv_corner_radius_bottom_right="25dp" />
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="30dp"
+                android:contentDescription="@string/contentDescription"
+                android:src="@drawable/icn_back_arrow" />
+
+            <TextView
+                android:id="@+id/tvAlbumTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|bottom"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                tools:text="id labore ex et quam laborum" />
+
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            android:adapter="@{commentsAdapter}"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lyImage"
+            tools:listitem="@layout/row_comments" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

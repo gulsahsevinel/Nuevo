@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstViewFragment">
+
+    <fragment
+        android:id="@+id/firstViewFragment"
+        android:name="com.gulsah.nuevocase.view.FirstViewFragment"
+        android:label="firstFragmentView"
+        tools:layout="@layout/fragment_first_view">
+        <action
+            android:id="@+id/firstViewFragment_to_secondViewFragment"
+            app:destination="@id/secondViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondViewFragment"
+        android:name="com.gulsah.nuevocase.view.SecondViewFragment"
+        android:label="secondViewFragment"
+        tools:layout="@layout/fragment_second_view">
+        <action
+            android:id="@+id/secondViewFragment_to_firstViewFragment"
+            app:destination="@id/firstViewFragment"
+            app:popUpTo="@id/firstViewFragment" />
+        <argument
+            android:name="photosObject"
+            app:argType="com.gulsah.nuevocase.model.Photos" />
+    </fragment>
+</navigation>
